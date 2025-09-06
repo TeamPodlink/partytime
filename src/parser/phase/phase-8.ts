@@ -1,23 +1,22 @@
-// Phase 8 - Podcast Namespace
-// This phase will contain podcast namespace tags that are confirmed for Phase 8
-// Currently no tags are implemented in this phase
+import { firstIfArray, getAttribute, getKnownAttribute } from "../shared";
+import type { XmlNode } from "../types";
 
-// Placeholder for future Phase 8 implementations
-// Example structure for future tags:
-// export const exampleTag = {
-//   phase: 8,
-//   name: "example",
-//   tag: "podcast:example",
-//   nodeTransform: firstIfArray,
-//   supportCheck: (node: XmlNode): boolean => Boolean(getAttribute(node, "requiredAttr")),
-//   fn(node: XmlNode): { exampleTag: ExampleType } {
-//     return {
-//       exampleTag: {
-//         // extracted properties
-//       },
-//     };
-//   },
-// };
+export type Phase8Follow = {
+  url: string;
+};
 
-// Export empty object to make this a valid module
-export {};
+export const podcastFollow = {
+  phase: 8,
+  name: "follow",
+  tag: "podcast:follow",
+  nodeTransform: firstIfArray,
+  supportCheck: (node: XmlNode): boolean =>
+    Boolean(getAttribute(node, "url")),
+  fn(node: XmlNode): { podcastFollow: Phase8Follow } {
+    return {
+      podcastFollow: {
+        url: getKnownAttribute(node, "url"),
+      },
+    };
+  },
+};

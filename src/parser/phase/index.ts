@@ -15,6 +15,7 @@ import * as phase4 from "./phase-4";
 import * as phase5 from "./phase-5";
 import * as phase6 from "./phase-6";
 import * as phase7 from "./phase-7";
+import * as phase8 from "./phase-8";
 import * as pending from "./phase-pending";
 import { XmlNodeSource } from "./types";
 
@@ -92,8 +93,7 @@ const feeds: FeedUpdate[] = [
   phase7.podcastChat,
   phase7.podcastPublisher,
 
-  // Phase 8 - Currently no tags implemented
-  // phase8.* tags will be added here as they are implemented
+  phase8.podcastFollow,
 
   pending.id,
   pending.social,
