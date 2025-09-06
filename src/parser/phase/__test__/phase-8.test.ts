@@ -48,12 +48,12 @@ describe("phase 8", () => {
     it("extracts follow url with different domain", () => {
       const xml = helpers.spliceFeed(
         feed,
-        `<podcast:follow url="https://radiotopia.fm/followlinks.json"/>`
+        `<podcast:follow url="https://f.prxu.org/72/subscribelinks.json"/>`
       );
       const result = helpers.parseValidFeed(xml);
 
       expect(result).toHaveProperty("podcastFollow");
-      expect(result.podcastFollow).toHaveProperty("url", "https://radiotopia.fm/followlinks.json");
+      expect(result.podcastFollow).toHaveProperty("url", "https://f.prxu.org/72/subscribelinks.json");
       expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
     });
 
