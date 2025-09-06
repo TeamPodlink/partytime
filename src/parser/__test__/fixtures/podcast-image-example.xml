@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:podcast="https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md"
+  xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
+  <channel>
+    <title>Podcast with Phase 8 Image Tag</title>
+    <description>This is an example feed demonstrating the new podcast:image tag from Phase 8.</description>
+    <link>http://example.com/podcast</link>
+    <docs>http://blogs.law.harvard.edu/tech/rss</docs>
+    <language>en-US</language>
+    <generator>Phase 8 Example</generator>
+    <pubDate>Fri, 09 Oct 2020 04:30:38 GMT</pubDate>
+    <lastBuildDate>Fri, 09 Oct 2020 04:30:38 GMT</lastBuildDate>
+    <managingEditor>john@example.com (John Doe)</managingEditor>
+    <webMaster>support@example.com (Tech Support)</webMaster>
+    
+    <!-- Phase 8: New podcast:image tag with all attributes -->
+    <podcast:image 
+      href="https://example.com/images/podcast-cover.jpg" 
+      alt="Podcast cover art showing an antenna emanating signal waves"
+      aspect-ratio="1/1" 
+      type="image/jpeg" 
+      width="1400" 
+      height="1400" 
+      purpose="artwork"/>
+    
+    <!-- Multiple images for different use cases -->
+    <podcast:image 
+      href="https://example.com/images/podcast-banner.jpg" 
+      alt="Podcast banner for social sharing"
+      aspect-ratio="16/9" 
+      type="image/jpeg" 
+      width="1920" 
+      height="1080" 
+      purpose="artwork social"/>
+    
+    <podcast:image 
+      href="https://example.com/images/publisher-logo.png" 
+      alt="Publisher logo"
+      aspect-ratio="1/1" 
+      type="image/png" 
+      width="512" 
+      height="512" 
+      purpose="publisher"/>
+    
+    <itunes:author>John Doe</itunes:author>
+    <itunes:explicit>no</itunes:explicit>
+    <itunes:type>episodic</itunes:type>
+    <itunes:category text="News"/>
+    <itunes:category text="Technology"/>
+
+    <itunes:image>https://example.com/images/pci_avatar-massive.jpg</itunes:image>
+
+    <item>
+      <title>Episode 1 - Introduction to Phase 8</title>
+      <description>&lt;p&gt;This episode introduces the new podcast:image tag from Phase 8!&lt;/p&gt;</description>
+      <link>https://example.com/podcast/ep0001</link>
+      <guid isPermaLink="true">https://example.com/ep0001</guid>
+      <pubDate>Fri, 09 Oct 2020 04:30:38 GMT</pubDate>
+      <author>John Doe (john@example.com)</author>
+      <itunes:image>https://example.com/ep0001/artMd.jpg</itunes:image>
+      <itunes:explicit>no</itunes:explicit>
+      <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
+      
+      <!-- Phase 8: podcast:image at episode level with multiple formats -->
+      <podcast:image 
+        href="https://example.com/ep0001/episode-cover.jpg" 
+        alt="Episode 1 cover art"
+        aspect-ratio="1/1" 
+        type="image/jpeg" 
+        width="800" 
+        height="800" 
+        purpose="artwork"/>
+      
+      <podcast:image 
+        href="https://example.com/ep0001/episode-banner.mp4" 
+        alt="Episode 1 animated banner"
+        aspect-ratio="16/9" 
+        type="video/mp4" 
+        width="1920" 
+        height="1080" 
+        purpose="artwork social canvas"/>
+    </item>
+  </channel>
+</rss>

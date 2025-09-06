@@ -22,6 +22,7 @@ import type {
 import type { Phase5Blocked, Phase5BlockedPlatforms, Phase5SocialInteract } from "./phase/phase-5";
 import type { Phase6RemoteItem, Phase6TxtEntry } from "./phase/phase-6";
 import type { Phase7Chat, Phase7Publisher } from "./phase/phase-7";
+import type { Phase8PodcastImage } from "./phase/phase-8";
 import {
   PhasePendingPodcastId,
   PhasePendingSocial,
@@ -197,6 +198,8 @@ export interface FeedObject extends BasicFeed {
   /** PENDING AND LIKELY TO CHANGE This tag tells the an application what the content contained within the feed IS, as opposed to what the content is ABOUT in the case of a category. */
   medium?: Phase4Medium;
   podcastImages?: Phase4PodcastImage[];
+  /** Phase 8: specifies a single image for a podcast at the channel level */
+  podcastImage?: Phase8PodcastImage;
   podcastRecommendations?: PhasePendingPodcastRecommendation[];
   // #endregion
 }
@@ -264,6 +267,8 @@ export interface Episode {
 
   // #region Pending Phase
   podcastImages?: Phase4PodcastImage[];
+  /** Phase 8: specifies a single image for a podcast at the episode level */
+  podcastImage?: Phase8PodcastImage;
   podcastRecommendations?: PhasePendingPodcastRecommendation[];
   podcastGateway?: PhasePendingGateway;
   // #endregion
