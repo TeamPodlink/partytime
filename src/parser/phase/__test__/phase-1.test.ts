@@ -429,6 +429,24 @@ describe("phase 1", () => {
       expect(helpers.getPhaseSupport(result, 1)).toContain(supportedName);
     });
 
+    it("extracts soundbites that start at zero", () => {
+      const xml = helpers.spliceFirstItem(
+        feed,
+        `<podcast:soundbite startTime="0" duration="30">Preview</podcast:soundbite>`
+      );
+
+      const result = helpers.parseValidFeed(xml);
+
+      expect(result.items[0]).toHaveProperty("podcastSoundbites");
+      expect(result.items[0].podcastSoundbites).toHaveLength(1);
+      const [firstSoundbite] = result.items[0].podcastSoundbites ?? [];
+      expect(firstSoundbite).toHaveProperty("duration", 30);
+      expect(firstSoundbite).toHaveProperty("startTime", 0);
+      expect(firstSoundbite).toHaveProperty("title", "Preview");
+
+      expect(helpers.getPhaseSupport(result, 1)).toContain(supportedName);
+    });
+
     it("supports multiple start and duration", () => {
       const xml = helpers.spliceLastItem(
         feed,

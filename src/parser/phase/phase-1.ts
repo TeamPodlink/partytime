@@ -232,7 +232,7 @@ export const soundbite: ItemUpdate = {
       const startTime = parseFloat(getKnownAttribute(soundbiteNode, "startTime"));
       const title = getText(soundbiteNode);
 
-      if (duration && startTime) {
+      if (Number.isFinite(duration) && Number.isFinite(startTime)) {
         const bite: Phase1SoundBite = {
           duration,
           startTime,
