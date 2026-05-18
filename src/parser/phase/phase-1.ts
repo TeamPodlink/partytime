@@ -18,7 +18,7 @@ export const locked: FeedUpdate = {
   tag: "podcast:locked",
   name: "locked",
   nodeTransform: firstIfArray,
-  supportCheck: (node) => Boolean(getAttribute(node, "owner")),
+  supportCheck: (node) => ["yes", "true", "no", "false"].includes(getText(node).toLowerCase()),
   fn(node) {
     const feedUpdate: Partial<FeedObject> = {};
     const lockedText = getText(node).toLowerCase();

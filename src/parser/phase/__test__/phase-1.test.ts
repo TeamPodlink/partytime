@@ -55,15 +55,15 @@ describe("phase 1", () => {
       expect(helpers.getPhaseSupport(result, 1)).toContain(supportedName);
     });
 
-    it("skips missing owner", () => {
+    it("extracts value without owner", () => {
       const xml = helpers.spliceFeed(feed, `<podcast:locked>yes</podcast:locked>`);
 
       const result = helpers.parseValidFeed(xml);
 
-      expect(result).not.toHaveProperty("locked");
+      expect(result).toHaveProperty("locked", true);
       expect(result).not.toHaveProperty("podcastOwner");
 
-      expect(helpers.getPhaseSupport(result, 1)).not.toContain(supportedName);
+      expect(helpers.getPhaseSupport(result, 1)).toContain(supportedName);
     });
 
     it("skips missing tag", () => {
